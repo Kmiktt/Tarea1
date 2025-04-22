@@ -24,4 +24,4 @@ hs_err_pid*
 replay_pid*
 
 # archivos de Intelij
-. idea/* 
+.idea/* 
