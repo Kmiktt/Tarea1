@@ -19,8 +19,8 @@ public class Expendedor {
         Bebida b;
         Bebida s;
         for (int x =0; x<i; x++){
-            b= new CocaCola(x);
-            s= new Sprite(x);
+            b= new CocaCola();
+            s= new Sprite();
             coca.addBebida(b);
             sprite.addBebida(s);
         }
