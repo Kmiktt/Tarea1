@@ -5,7 +5,7 @@ public class Comprador{
     public Comprador(Moneda m, int cualBebida, Expendedor exp){
         Bebida b = exp.comprarBebida(m,cualBebida);
         if (b==null) sonido = null;
-        else sonido = b.beber();
+        else sonido = b.consumir();
         Moneda t = exp.getVuelto();
         while (t!=null){
             vuelto+=t.getValor();
