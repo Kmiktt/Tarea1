@@ -6,7 +6,7 @@ public class Deposito<T> {
     public  Deposito(){
         al = new ArrayList<T>();
     }
-    public void add(Bebida b){
+    public void add(T b){
         al.add(b);
     }
     public T get(){
