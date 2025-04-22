@@ -1,8 +1,11 @@
 package org.example;
 
 public class Expendedor {
-    private Deposito<Bebida> coca;
-    private Deposito<Bebida> sprite;
+    private Deposito<Producto> coca;
+    private Deposito<Producto> sprite;
+    private Deposito<Producto> fanta;
+    private Deposito<Producto> super8;
+    private Deposito<Producto> snicker;
     private Deposito<Moneda> monVu;
     private int precio;
     public static final int  COCA=1;
@@ -13,6 +16,9 @@ public class Expendedor {
     public Expendedor(int i, int p){
         coca = new Deposito();
         sprite = new Deposito();
+        fanta = new Deposito();
+        super8 = new Deposito();
+        snicker = new Deposito();
         monVu = new Deposito();
         precio = p;
         //num = i;
@@ -25,13 +31,33 @@ public class Expendedor {
             sprite.add(s);
         }
     }
-    public Bebida comprarBebida(Moneda m, int x){
+    public Producto comprarProducto(Moneda m, int x){
+        Producto p;
+        int vuelto;
         if (m!=null) {
+            if (x == Productos.COCACOLA.getNum()){
+                vuelto = m.getValor()-Productos.COCACOLA.getPrecio();
+                if (vuelto>=0){
+                    p = coca.get();
+                }
+            }
+            if (x == Productos.SPRITE.getNum()){
+
+            }
+            if (x == Productos.FANTA.getNum()){
+
+            }
+            if (x == Productos.SNICKER.getNum()){
+
+            }
+            if (x == Productos.SUPER8.getNum()){
+
+            }
             if (m.getValor()<precio || x<1 || x>2){
                 monVu.add(m);
                 return null;
             } else {
-                Bebida b;
+                Producto b;
                 if (x==COCA) b = coca.get();
                 else b=sprite.get();
                 if (b==null){
