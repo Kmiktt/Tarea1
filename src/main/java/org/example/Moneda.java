@@ -1,7 +1,6 @@
 package org.example;
 
 public abstract class Moneda implements Comparable<Moneda>{
-    private int valor;
 
     public abstract int getValor();
     @Override
@@ -10,18 +9,9 @@ public abstract class Moneda implements Comparable<Moneda>{
             return 1;
         } else if (this.getValor() < o.getValor()) {
             return -1;
-
         } else {
             return 0;
         }
-    }
-}
-class Moneda1500 extends Moneda{
-    public Moneda1500(){
-        super();
-    }
-    public int getValor(){
-        return 1500;
     }
 }
 class Moneda1000 extends Moneda{
