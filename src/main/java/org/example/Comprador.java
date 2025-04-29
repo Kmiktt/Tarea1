@@ -1,19 +1,19 @@
 package org.example;
 public class Comprador{
-    private String sonido;
+    private String sabor;
     private int vuelto = 0;
     public Comprador(Moneda m, int cualBebida, Expendedor exp){
         Producto b = exp.comprarProducto(m,cualBebida);
-        if (b==null) sonido = null;
-        else sonido = b.consumir();
+        if (b==null) sabor = null;
+        else sabor = b.consumir();
         Moneda t = exp.getVuelto();
         while (t!=null){
             vuelto+=t.getValor();
             t=exp.getVuelto();
         }
     }
-    public String queBebiste(){
-        return sonido;
+    public String queConsumiste(){
+        return sabor;
     }
     public int cuantoVuelto(){
         return vuelto;
