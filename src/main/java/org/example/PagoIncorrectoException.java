@@ -1,4 +1,5 @@
 package org.example;
 
-public class PagoIncorrectoException {
+public class PagoIncorrectoException extends Exception{
+    PagoIncorrectoException(){}
 }

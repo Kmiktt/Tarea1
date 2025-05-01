@@ -30,7 +30,7 @@ public class Expendedor {
             super8.add(b);
         }
     }
-    public Producto comprarProducto(Moneda m, int x){
+    public Producto comprarProducto(Moneda m, int x) throws PagoIncorrectoException, PagoInsuficienteException, NoHayProductoException{
         Producto p=null;
         int vuelto=0;
         boolean check = false;
@@ -53,34 +53,34 @@ public class Expendedor {
                 check = true;
                 vuelto = m.getValor()-Productos.FANTA.getPrecio();
                 if (vuelto>=0){
-                    p = coca.get();
+                    p = fanta.get();
                 }
             }
             if (x == Productos.SNICKER.getNum()){
                 check = true;
                 vuelto = m.getValor()-Productos.SNICKER.getPrecio();
                 if (vuelto>=0){
-                    p = coca.get();
+                    p = snicker.get();
                 }
             }
             if (x == Productos.SUPER8.getNum()){
                 check = true;
                 vuelto = m.getValor()-Productos.SUPER8.getPrecio();
                 if (vuelto>=0){
-                    p = coca.get();
+                    p = super8.get();
                 }
             }
             if (!check){
                 monVu.add(m);
-                return null;
+                throw new NoHayProductoException();
             }
             if (vuelto<0){
                 monVu.add(m);
-                return null;
+                throw new PagoInsuficienteException();
             }
             if (p==null){
                 monVu.add(m);
-                return null;
+                throw new PagoIncorrectoException();
             }
             Moneda place;
             while (vuelto>0){place = new Moneda100(); monVu.add(place); vuelto-=100;}

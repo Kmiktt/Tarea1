@@ -1,4 +1,5 @@
 package org.example;
 
-public class NoHayProductoException {
+public class NoHayProductoException extends Exception{
+    NoHayProductoException(){}
 }
