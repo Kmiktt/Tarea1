@@ -1,48 +1,55 @@
 package org.example;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MainInteractivo {
     public static void main(String[] args) {
+        //el código inicia con cada
         var con = System.console();
+        int cantProd;
+        System.out.println("elija la cantidad de productos por expendendor:");
+        Scanner preg = new Scanner(con.reader());
+        cantProd = preg.nextInt();
+        Expendedor exp = new Expendedor(cantProd);
         while(con != null) {
-            System.out.println("elija la cantidad de productos por expendendor");
-            int a = 0;
-            Scanner preg = new Scanner(con.reader());
-            a = preg.nextInt();
-            Expendedor exp = new Expendedor(a);
-            System.out.println("¿Que moneda deseas seleccionar?");
-            System.out.println("[0] - Moneda de 100 pesos\n" +
-                    "[1] - Moneda de 500 pesos\n" +
-                    "[2] - Moneda de 1000 pesos\n");
-            con = System.console();
-            preg = new Scanner(con.reader());
-            a = preg.nextInt();
-            Moneda m = null;
-            switch (a){
+            //variables principales
+            int cualProd;
+            //selección de moneda
+            System.out.println("""
+                    ¿Que moneda deseas seleccionar?
+                    [0] - Moneda de 100 pesos
+                    [1] - Moneda de 500 pesos
+                    [2] - Moneda de 1000 pesos
+                    """);
+            cantProd = preg.nextInt();
+            //moneda inicializada dependiendo del valor, es nula si no está dentro del menú
+            Moneda mon = null;
+            switch (cantProd){
                 case 0: {
-                    m = new Moneda100();
+                    mon = new Moneda100();
                 }
                 case 1: {
-                    m = new Moneda500();
+                    mon = new Moneda500();
                 }
                 case 2: {
-                    m = new Moneda1000();
+                    mon = new Moneda1000();
                 }
             }
-            int b = 0;
-            preg = new Scanner(con.reader());
-            System.out.println("¿Que producto deseas comprar?");
-            for (Productos Var : Productos.values()) {
-                System.out.println("["+Var.getNum()+"] - "+ Var);
-            }
-            b = preg.nextInt();
+            //elección de producto
+            System.out.println("""
+                    ¿Que producto deseas comprar?
+                    [1] - COCACOLA
+                    [2] - SPRITE
+                    [3] - FANTA
+                    [4] - SUPER8
+                    [5] - SNICKER
+                    """);
+            cualProd = preg.nextInt();
             try {
-                // * desde acá hasta acá es libre edición
-                Comprador comp = new Comprador(m, b, exp);
+                // el comprador obtiene la moneda, el producto y el expendedor y
+                // luego se imprime lo que compró y su vuelto
+                Comprador comp = new Comprador(mon, cualProd, exp);
                 System.out.println("El cliente consumio: " + comp.queConsumiste());
                 System.out.println("Y su vuelto es: " + comp.cuantoVuelto() + "\n");
-                // *
             } catch (NoHayProductoException e) {
                 System.out.println("El producto no se encuentra o no existe\n");
             } catch (PagoIncorrectoException e) {
@@ -50,12 +57,14 @@ public class MainInteractivo {
             } catch (PagoInsuficienteException e) {
                 System.out.println("El valor del producto es mayor a la cantidad de dinero ingresada\n");
             }
-            System.out.println("¿Desea comprar algo mas?\n" +
-                    "[0] - si\n" +
-                    "[1] - no\n");
-            preg = new Scanner(con.reader());
+            //menú de salida
+            System.out.println("""
+                    ¿Desea comprar algo mas?
+                    [0] - si
+                    [1] - no
+                    """);
             if(preg.nextInt() == 1)break;
+            con = System.console();
         }
-
     }
 }
