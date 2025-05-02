@@ -10,12 +10,12 @@ public class Expendedor {
     private int precio;
 
     public Expendedor(int i){
-        coca = new Deposito();
-        sprite = new Deposito();
-        fanta = new Deposito();
-        super8 = new Deposito();
-        snicker = new Deposito();
-        monVu = new Deposito();
+        coca = new Deposito<Producto>();
+        sprite = new Deposito<Producto>();
+        fanta = new Deposito<Producto>();
+        super8 = new Deposito<Producto>();
+        snicker = new Deposito<Producto>();
+        monVu = new Deposito<Moneda>();
         Producto b;
         for (int x =0; x<i; x++){
             b= new CocaCola();
@@ -72,20 +72,16 @@ public class Expendedor {
             }
             // dependiendo del problema se lanza la excepción correspondiente:
             if(x > 6 || x < 0){
-                monVu.add(m);
                 throw new NoHayProductoException();
             }
             if (!check){
-                monVu.add(m);
                 throw new NoHayProductoException();
             }
             if (vuelto<0){
-                monVu.add(m);
                 throw new PagoInsuficienteException();
             }
             if (p==null){
-                monVu.add(m);
-                throw new PagoIncorrectoException();
+                throw new NoHayProductoException();
             }
             Moneda place;
             while (vuelto>0){place = new Moneda100(); monVu.add(place); vuelto-=100;}
