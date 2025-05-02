@@ -32,17 +32,15 @@ public class MainInteractivo {
             if (con != null) {
                 Scanner preg = new Scanner(con.reader());
                 System.out.println("¿Que producto deseas comprar?");
-                System.out.println("[1] - cocacola\n" +
-                        "[2] - sprite\n" +
-                        "[3] - fanta\n" +
-                        "[4] - super8\n" +
-                        "[5] - snickers\n");
+                for (Productos Var : Productos.values()) {
+                    System.out.println("["+Var.getNum()+"] - "+ Var);
+                }
                 b = preg.nextInt();
             }
             try {
                 // * desde acá hasta acá es libre edición
                 Comprador comp = new Comprador(money.get(a), b, exp);
-                System.out.println("el cliente comió:" + comp.queConsumiste());
+                System.out.println("el cliente consumio:" + comp.queConsumiste());
                 System.out.println("y su vuelto es:" + comp.cuantoVuelto() + "\n");
                 // *
             } catch (NoHayProductoException e) {
