@@ -3,10 +3,11 @@ import java.util.Scanner;
 
 public class MainInteractivo {
     public static void main(String[] args) {
-        //el código inicia con cada
         var con = System.console();
         int cantProd;
-        System.out.println("elija la cantidad de productos por expendendor:");
+        //se elige primero la cantidad de elementos por categoría que tendrá
+        //el expendedor
+        System.out.println("Elija la cantidad de productos por expendendor:");
         Scanner preg = new Scanner(con.reader());
         cantProd = preg.nextInt();
         Expendedor exp = new Expendedor(cantProd);
