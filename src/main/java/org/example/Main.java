@@ -52,6 +52,22 @@ public class Main {
                 System.out.println("El valor del producto es mayor a la cantidad de dinero ingresada");
             }
         }
+        //aqui va la prueba del buen funcionamiento del compareto de Moneda
+        ArrayList<Moneda> monedasort = new ArrayList<Moneda>();
+        monedasort.add(new Moneda500());
+        monedasort.add(new Moneda500());
+        monedasort.add(new Moneda1000());
+        monedasort.add(new Moneda1000());
+        monedasort.add(new Moneda100());
+        monedasort.add(new Moneda100());
+        monedasort.add(new Moneda500());
+        monedasort.add(new Moneda100());
+        monedasort.add(new Moneda1000());
 
+        monedasort.sort(null);
+        for (int i = 0; i < monedasort.size(); i++) {
+            System.out.println(monedasort.get(i)+" "+monedasort.get(i).getValor());
+
+        }
     }
 }
