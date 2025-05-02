@@ -58,5 +58,6 @@ public class MainInteractivo {
             Scanner preg = new Scanner(con.reader());
             if(preg.nextInt() == 1)break;
         }
+
     }
 }
