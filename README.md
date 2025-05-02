@@ -1,4 +1,6 @@
-# Tarea1
-Tarea 1 para curso de DOO
+# Estudiantes:
 
-prueba de commit con la linea de comandos de windows
+
+Camila Alejandra Garcia Torres (Kmiktt)
+Benjamin Alejandro Stuckrath Bustamante (Stuckrath)
+Fernanda Catalina Rubilar Sánchez (Catalinafer2023)
