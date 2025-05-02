@@ -70,6 +70,11 @@ public class Expendedor {
                     p = super8.get();
                 }
             }
+            // dependiendo del problema se lanza la excepción correspondiente:
+            if(x > 6 || x < 0){
+                monVu.add(m);
+                throw new NoHayProductoException();
+            }
             if (!check){
                 monVu.add(m);
                 throw new NoHayProductoException();
@@ -85,6 +90,7 @@ public class Expendedor {
             Moneda place;
             while (vuelto>0){place = new Moneda100(); monVu.add(place); vuelto-=100;}
         }
+        else throw new PagoIncorrectoException();
         return p;
     }
     public Moneda getVuelto(){
