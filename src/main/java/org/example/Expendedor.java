@@ -72,15 +72,19 @@ public class Expendedor {
             }
             // dependiendo del problema se lanza la excepción correspondiente:
             if(x > 6 || x < 0){
+                monVu.add(m);
                 throw new NoHayProductoException();
             }
             if (!check){
+                monVu.add(m);
                 throw new NoHayProductoException();
             }
             if (vuelto<0){
+                monVu.add(m);
                 throw new PagoInsuficienteException();
             }
             if (p==null){
+                monVu.add(m);
                 throw new NoHayProductoException();
             }
             Moneda place;
